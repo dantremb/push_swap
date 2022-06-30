@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:38:59 by dantremb          #+#    #+#             */
-/*   Updated: 2022/06/30 14:44:10 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/06/30 14:53:58 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_execute_command(t_stack *stack)
 {
-	
+	ft_print_stack(stack);
 }
 
 int	main(int argc, char **argv)
