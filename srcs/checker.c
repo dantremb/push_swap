@@ -14,7 +14,11 @@
 
 void	ft_execute_command(t_stack *stack)
 {
-	ft_print_stack(stack);
+	char	*test;
+	(void) stack;
+
+	test = ft_get_next_line(0);
+	printf("test = %s\n", test);
 }
 
 int	main(int argc, char **argv)

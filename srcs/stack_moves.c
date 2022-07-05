@@ -34,7 +34,7 @@ void	ft_swap(t_stack *stack, int set)
 		ft_putstr("sb\n");
 	if (set == BOTHSTACK)
 		ft_putstr("ss\n");
-	ft_print_stack(stack);
+	//ft_print_stack(stack);
 }
 
 void	ft_rotate(t_stack *stack, int set)
@@ -64,7 +64,7 @@ void	ft_rotate(t_stack *stack, int set)
 		ft_putstr("rb\n");
 	if (set == BOTHSTACK)
 		ft_putstr("rr\n");
-	ft_print_stack(stack);
+	//ft_print_stack(stack);
 }
 
 void	ft_reverse(int *stack)
@@ -96,5 +96,5 @@ void	ft_reverse_rotate(t_stack *stack, int set)
 		ft_putstr("rrb\n");
 	if (set == BOTHSTACK)
 		ft_putstr("rrr\n");
-	ft_print_stack(stack);
+	//ft_print_stack(stack);
 }

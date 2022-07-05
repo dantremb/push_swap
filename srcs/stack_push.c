@@ -51,5 +51,5 @@ void	ft_push(t_stack *stack, int set)
 		ft_remove(stack->a);
 		ft_putstr("pb\n");
 	}
-	ft_print_stack(stack);
+	//ft_print_stack(stack);
 }
