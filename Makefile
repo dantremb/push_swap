@@ -6,7 +6,7 @@
 #    By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 23:33:38 by root              #+#    #+#              #
-#    Updated: 2022/06/30 15:05:38 by dantremb         ###   ########.fr        #
+#    Updated: 2022/07/05 10:24:28 by dantremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,14 +69,14 @@ bonus: signature_bonus init_bonus $(NAME_BONUS)
 # Initialise librairies and making objs folder
 init:
 	@mkdir -p $O
-	@echo "$GInitialise librairies$W"
+	@echo "$GLibrary's initialization$W"
 	@$(MAKE) -s -C $(LIBFT_PATH)
 	@printf "$CCreating $(NAME)\n$W"
 
 # Initialise bonus librairies and making bonus objs folder
 init_bonus:
 	@mkdir -p $O
-	@echo "$GInitialise librairies$W"
+	@echo "$GLibrary's initialization$W"
 	@$(MAKE) -s -C $(LIBFT_PATH)
 	@printf "$CCreating $(NAME_BONUS)\n$W"
 
