@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_moves.c                                      :+:      :+:    :+:   */
+/*   stack_moves_bonus.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 22:56:01 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/05 12:17:00 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/05 12:15:50 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ft_swap(t_stack *stack, int set)
+void	ft_swap_bonus(t_stack *stack, int set)
 {
 	int	temp;
 
@@ -28,15 +28,9 @@ void	ft_swap(t_stack *stack, int set)
 		stack->b[0] = stack->b[1];
 		stack->b[1] = temp;
 	}
-	if (set == STACKA)
-		ft_putstr("sa\n");
-	if (set == STACKB)
-		ft_putstr("sb\n");
-	if (set == BOTHSTACK)
-		ft_putstr("ss\n");
 }
 
-void	ft_rotate(t_stack *stack, int set)
+void	ft_rotate_bonus(t_stack *stack, int set)
 {
 	int	i;
 	int	temp;
@@ -57,43 +51,26 @@ void	ft_rotate(t_stack *stack, int set)
 			stack->b[i] = stack->b[i + 1];
 		stack->b[i] = temp;
 	}
-	if (set == STACKA)
-		ft_putstr("ra\n");
-	if (set == STACKB)
-		ft_putstr("rb\n");
-	if (set == BOTHSTACK)
-		ft_putstr("rr\n");
-	//ft_print_stack(stack);
 }
 
-void	ft_reverse(int *stack)
-{
-	int	temp;
-	int	i;
-
-	i = 0;
-	while (stack[i + 1])
-		i++;
-	temp = stack[i];
-	while (i > 0)
-	{
-		stack[i] = stack[i - 1];
-		i--;
-	}
-	stack[i] = temp;
-}
-
-void	ft_reverse_rotate(t_stack *stack, int set)
+void	ft_reverse_rotate_bonus(t_stack *stack, int set)
 {
 	if (set == STACKA || set == BOTHSTACK)
 		ft_reverse(stack->a);
 	if (set == STACKB || set == BOTHSTACK)
 		ft_reverse(stack->b);
-	if (set == STACKA)
-		ft_putstr("rra\n");
-	if (set == STACKB)
-		ft_putstr("rrb\n");
-	if (set == BOTHSTACK)
-		ft_putstr("rrr\n");
-	//ft_print_stack(stack);
+}
+
+void	ft_push_bonus(t_stack *stack, int set)
+{
+	if (set == STACKA && stack->b[0] != 0)
+	{
+		ft_add(stack->a, stack->b[0]);
+		ft_remove(stack->b);
+	}
+	if (set == STACKB && stack->a[0] != 0)
+	{
+		ft_add(stack->b, stack->a[0]);
+		ft_remove(stack->a);
+	}
 }

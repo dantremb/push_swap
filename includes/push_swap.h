@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 10:46:42 by dantremb          #+#    #+#             */
-/*   Updated: 2022/06/29 14:40:57 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/05 14:30:32 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ void	ft_push(t_stack *stack, int set);
 void	ft_swap(t_stack *stack, int set);
 void	ft_rotate(t_stack *stack, int set);
 void	ft_reverse_rotate(t_stack *stack, int set);
+void	ft_add(int *stack, int number);
+void	ft_remove(int *stack);
+void	ft_reverse(int *stack);
 
 void	ft_sort(t_stack *stack, int total_number);
 void	ft_sort_three(t_stack *stack);

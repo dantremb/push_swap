@@ -6,7 +6,7 @@
 #    By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/02 23:33:38 by root              #+#    #+#              #
-#    Updated: 2022/07/05 10:24:28 by dantremb         ###   ########.fr        #
+#    Updated: 2022/07/05 14:29:44 by dantremb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,8 @@ SRCS_FILES_BONUS = checker.c \
 			stack_push.c \
 			sort_stack.c \
 			sort_utils.c \
-			initialisation.c	
+			initialisation.c \
+			stack_moves_bonus.c
 SRCS_BONUS = $(addprefix $S, $(SRCS_FILES_BONUS))
 
 # Bonus Objects conversion
