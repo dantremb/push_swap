@@ -39,7 +39,7 @@ SRCS = $(addprefix $S, $(SRCS_FILES))
 O = objs/
 OBJS= $(SRCS:$S%=$O%.o)
 $O%.o: $S%
-	@printf "-"
+	@printf "$R■$W"
 	@$(CC) $(CFLAGS) -c $< -o $@
 	
 # Bonus Sources files
@@ -55,26 +55,30 @@ SRCS_BONUS = $(addprefix $S, $(SRCS_FILES_BONUS))
 # Bonus Objects conversion
 OBJS_BONUS = $(SRCS_BONUS:$S%=$O%.o)
 $O%.o: $S%
-	@printf "-"
+	@printf "$R■$W"
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 # Main rule
-all: init $(NAME)
-	@echo "> Done!."
-	@echo "$(NAME) Compiled!"
+all: signature init $(NAME)
+	@echo "$G\n$(NAME) Compiled!$W"
 
 # Bonus rule
-bonus: init $(NAME_BONUS)
-	@echo "> Done!."
-	@echo "$(NAME) Compiled!"
+bonus: signature_bonus init_bonus $(NAME_BONUS)
+	@echo "$G\n$(NAME_BONUS) Compiled!$W"
 	
 # Initialise librairies and making objs folder
 init:
 	@mkdir -p $O
-	@echo "Initialise Libft"
+	@echo "$GInitialise librairies$W"
 	@$(MAKE) -s -C $(LIBFT_PATH)
-	@echo "Initialise $(NAME)"
-	@printf "Compiling "
+	@printf "$CCreating $(NAME)\n$W"
+
+# Initialise bonus librairies and making bonus objs folder
+init_bonus:
+	@mkdir -p $O
+	@echo "$GInitialise librairies$W"
+	@$(MAKE) -s -C $(LIBFT_PATH)
+	@printf "$CCreating $(NAME_BONUS)\n$W"
 
 # Creating checker executable
 $(NAME_BONUS): $(OBJS_BONUS)
@@ -104,3 +108,18 @@ git:
 	@git add .
 	@git commit -m "$(COMMIT)"
 	@git push
+
+R = $(shell tput -Txterm setaf 1)
+G = $(shell tput -Txterm setaf 2)
+C = $(shell tput -Txterm setaf 6)
+W = $(shell tput -Txterm setaf 7)
+
+signature:
+	@echo "\n$G+---+---+---+---+---+---+---+---+"
+	@echo "$G|$C	$(NAME) by Dantremb	$G|"
+	@echo "$G+---+---+---+---+---+---+---+---+"
+
+signature_bonus:
+	@echo "\n$G+---+---+---+---+---+---+---+---+"
+	@echo "$G|$C	$(NAME_BONUS) by Dantremb	$G|"
+	@echo "$G+---+---+---+---+---+---+---+---+"

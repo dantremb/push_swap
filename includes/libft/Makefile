@@ -10,10 +10,17 @@
 #                                                                              #
 # **************************************************************************** #
 
-# Nom de la librairie.
+# Nom du Projet
 NAME = libft.a
 
-# Fichiers sources.
+# Flags
+AR = ar
+CC = gcc
+ARFLAGS = rcs
+CFLAGS = -Wall -Wextra -Werror -g
+
+# Sources files
+S = srcs/
 SRCS_FILES = ft_isascii.c ft_strlcpy.c ft_toupper.c ft_memchr.c ft_memmove.c \
 		ft_putnbr_fd.c ft_putendl_fd.c ft_lstmap.c ft_lstiter.c ft_lstclear.c \
 		ft_strlen.c ft_putchar_fd.c ft_split.c ft_lstadd_front.c ft_strchr.c \
@@ -25,55 +32,47 @@ SRCS_FILES = ft_isascii.c ft_strlcpy.c ft_toupper.c ft_memchr.c ft_memmove.c \
 		ft_isdigit.c ft_putstr.c ft_strrchr.c ft_isprint.c ft_strdup.c \
 		ft_atoli.c ft_get_next_line.c ft_printf.c ft_printf_utils.c \
 		ft_free_array.c ft_split_size.c
+SRCS = $(addprefix $S, $(SRCS_FILES))
 
-# Ajoute le noms du dossier en avant de chaque sources.
-SRCS_PATH = srcs/
-SRCS = $(addprefix $(SRCS_PATH), $(SRCS_FILES))
-
-# Compilateurs
-AR = ar
-CC = gcc
-
-# Flags
-ARFLAGS = rcs
-CFLAGS = -Wall -Wextra -Werror -g
-
-# Macros
-REMOVE = rm -rf
-COMMIT = $(shell date "+%d %B %T")
-
-# Transforme les fichiers .c en fichiers .o
-# La premiere utilise le contenu de la 2e pour compiler.
-# J'imprime un tiret (sans newline) pour créer ma ligne de progression.
-OBJS= $(SRCS:%.c=%.o)
-%.o: %.c
-	@printf "-"
-	@$(CC) $(CFLAGS) -c -o $@ $<
+# Objects conversion
+O = objs/
+OBJS= $(SRCS:$S%=$O%.o)
+$O%.o: $S%
+	@printf "$R■$W"
+	@$(CC) $(CFLAGS) -c $< -o $@
 	
-# On appel la commande INIT et NAME puis on imprime le message final.
+# Main rule
 all: init $(NAME)
-	@echo "> Done!."
-	@echo "$(NAME) Compiled!"
+	@echo "$G\n$(NAME) Compiled!$W"
 
-# On imprime le début de la compilation à l'écran (sans newline).
+# Making objs folder
 init:
-	@printf "Compiling "
+	@mkdir -p $O
+	@printf "$CCreating $(NAME)\n$W"
 
-# On appel la création des OBJS et ensuite on compile la librairie.
+# Creating libft library
 $(NAME): $(OBJS)
 	@$(AR) $(ARFLAGS) $@ $^
 
-# Commande de nettoyage.
+# Cleaning
+REMOVE = rm -rf
+
 clean:
-	@$(REMOVE) $(OBJS)
+	@$(REMOVE) $O
+
 fclean: clean
 	@$(REMOVE) $(NAME)
 
-# On nettoie et recompile.
 re:	fclean all
 
-# On peut choisir le nom de commit avec "make git COMMIT="
+# Utilities
+COMMIT = $(shell date "+%d %B %T")
 git:
-	git add .
-	git commit -m "$(COMMIT)"
-	git push
+	@git add .
+	@git commit -m "$(COMMIT)"
+	@git push
+
+R = $(shell tput -Txterm setaf 1)
+G = $(shell tput -Txterm setaf 2)
+C = $(shell tput -Txterm setaf 6)
+W = $(shell tput -Txterm setaf 7)
