@@ -81,15 +81,15 @@ init_bonus:
 	@$(MAKE) -s -C $(LIBFT_PATH)
 	@printf "$CCreating $(NAME_BONUS)\n$W"
 
-# Creating checker executable
+# Creating bonus executable
 $(NAME_BONUS): $(OBJS_BONUS)
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)
 
-# Creating push_swap executable
+# Creating  executable
 $(NAME): $(OBJS)
 	@$(CC) $(CFLAGS) -o $@ $^ $(LIBFT)
 
-# Cleaning
+# Cleaning/
 REMOVE = rm -rf
 
 clean:
