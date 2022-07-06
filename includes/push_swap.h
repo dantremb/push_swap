@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 10:46:42 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:30:32 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:39:01 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct s_stack
 	int	next;
 	int	index;
 	int	beforelast;
+	int	split_flag;
 }				t_stack;
 
 void	ft_send_error(void);
@@ -38,10 +39,10 @@ int		ft_find_index(char *number, char **argv);
 int		*ft_init_stack_a(char **argv, int total_number);
 void	*ft_init_all_stack(t_stack *stack, char **argv, int total_number);
 
-int		ft_check_isdigit(char **argv);
+int		ft_digit(char **argv);
 int		ft_check_sorted(char **argv);
-int		ft_check_doubles(char **argv);
-int		ft_check_min_max(char **argv);
+int		ft_doubles(char **argv);
+int		ft_max(char **argv);
 
 void	ft_push(t_stack *stack, int set);
 void	ft_swap(t_stack *stack, int set);

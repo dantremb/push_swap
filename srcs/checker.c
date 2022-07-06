@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:38:59 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/05 14:39:29 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:34:42 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	ft_sorted(t_stack *stack)
 	int	i;
 
 	i = 0;
-	while(stack->a[++i])
-		if(stack->a[i] < stack->a[i - 1])
+	while (stack->a[++i])
+		if (stack->a[i] < stack->a[i - 1])
 			return (1);
 	return (0);
 }
@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 	t_stack	stack;
 	char	*split;
 	int		split_flag;
-	
+
 	split_flag = 0;
 	if (ft_strchr(argv[1], 32) != NULL && argc == 2)
 	{
@@ -85,10 +85,8 @@ int	main(int argc, char **argv)
 		free (split);
 		split_flag = 1;
 	}
-	if (ft_check_min_max(argv) || ft_check_isdigit(argv) || ft_check_doubles(argv))
+	if (ft_digit(argv) || ft_doubles(argv) || ft_doubles(argv))
 		ft_send_error();
-	else if (ft_check_sorted(argv) == 0|| argc <= 2)
-		return (1);
 	else
 	{
 		ft_init_all_stack(&stack, argv + 1, argc);

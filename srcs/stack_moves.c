@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 22:56:01 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/05 12:17:00 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:27:45 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,6 @@ void	ft_rotate(t_stack *stack, int set)
 		ft_putstr("rb\n");
 	if (set == BOTHSTACK)
 		ft_putstr("rr\n");
-	//ft_print_stack(stack);
 }
 
 void	ft_reverse(int *stack)
@@ -95,5 +94,4 @@ void	ft_reverse_rotate(t_stack *stack, int set)
 		ft_putstr("rrb\n");
 	if (set == BOTHSTACK)
 		ft_putstr("rrr\n");
-	//ft_print_stack(stack);
 }

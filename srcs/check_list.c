@@ -6,13 +6,13 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/18 21:45:48 by dantremb          #+#    #+#             */
-/*   Updated: 2022/06/30 14:33:05 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/06 12:42:14 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	ft_check_isdigit(char **argv)
+int	ft_digit(char **argv)
 {
 	int	ip;
 	int	is;
@@ -33,7 +33,7 @@ int	ft_check_isdigit(char **argv)
 	return (0);
 }
 
-int	ft_check_min_max(char **argv)
+int	ft_max(char **argv)
 {
 	int	i;
 
@@ -57,7 +57,7 @@ int	ft_check_sorted(char **argv)
 	return (0);
 }
 
-int	ft_check_doubles(char **argv)
+int	ft_doubles(char **argv)
 {
 	int	ip;
 	int	is;
