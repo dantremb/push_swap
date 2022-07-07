@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/28 19:44:48 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/06 12:44:38 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/07 10:49:14 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_push_swap(int argc, char **argv, t_stack *stack)
 {
-	if (ft_max(argv) || ft_digit(argv) || ft_doubles(argv))
+	if (ft_max(argv) != 0 || ft_digit(argv) != 0 || ft_doubles(argv) != 0)
 	{
 		if (stack->split_flag == 1)
 			ft_free_array(argv);
