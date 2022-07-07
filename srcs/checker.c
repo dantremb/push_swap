@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:38:59 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/06 12:34:42 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/06 23:54:28 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_sorted(t_stack *stack)
 	return (0);
 }
 
-void	ft_do_move(char *test, t_stack *stack)
+int	ft_do_move(char *test, t_stack *stack)
 {
 	if (ft_strncmp(test, "pa\n", 3) == 0)
 		ft_push_bonus(stack, STACKA);
@@ -49,19 +49,28 @@ void	ft_do_move(char *test, t_stack *stack)
 	else if (ft_strncmp(test, "rr\n", 3) == 0)
 		ft_rotate_bonus(stack, BOTHSTACK);
 	else
-		ft_send_error();
+		return (1);
+	return (0);
 }
 
-void	ft_execute_command(t_stack *stack)
+void	ft_execute_command(t_stack *stack, char **argv)
 {
 	char	*test;
+	int		ret;
 
+	ret = 0;
 	while (1)
 	{
 		test = ft_get_next_line(0);
 		if (!test)
 			break ;
-		ft_do_move(test, stack);
+		ret = ft_do_move(test, stack);
+		if (ret == 1)
+		{
+			if (stack->split_flag == 1)
+				ft_free_array(argv);
+			exit(1);
+		}
 		free (test);
 	}
 	if (ft_sorted(stack) == 1)
@@ -81,7 +90,7 @@ void	ft_checker(int argc, char **argv, t_stack *stack)
 	else
 	{
 		ft_init_all_stack(stack, argv + 1, argc);
-		ft_execute_command(stack);
+		ft_execute_command(stack, argv);
 		free (stack->a);
 		free (stack->b);
 	}
