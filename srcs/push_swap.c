@@ -12,6 +12,29 @@
 
 #include "../includes/push_swap.h"
 
+void	ft_push_swap(int argc, char **argv, t_stack *stack)
+{
+	if (ft_max(argv) || ft_digit(argv) || ft_doubles(argv))
+	{
+		if (stack->split_flag == 1)
+			ft_free_array(argv);
+		ft_send_error();
+	}
+	else if (ft_check_sorted(argv) == 0 || argc <= 2)
+	{
+		if (stack->split_flag == 1)
+			ft_free_array(argv);
+		exit(1);
+	}
+	else
+	{
+		ft_init_all_stack(stack, argv + 1, argc);
+		ft_sort(stack, argc);
+		free (stack->a);
+		free (stack->b);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
@@ -26,25 +49,7 @@ int	main(int argc, char **argv)
 		free (split);
 		stack.split_flag = 1;
 	}
-	if (ft_max(argv) || ft_digit(argv) || ft_doubles(argv))
-	{
-		if (stack.split_flag == 1)
-			ft_free_array(argv);
-		ft_send_error();
-	}
-	else if (ft_check_sorted(argv) == 0 || argc <= 2)
-	{
-		if (stack.split_flag == 1)
-			ft_free_array(argv);
-		return (1);
-	}
-	else
-	{
-		ft_init_all_stack(&stack, argv + 1, argc);
-		ft_sort(&stack, argc);
-		free (stack.a);
-		free (stack.b);
-	}
+	ft_push_swap(argc, argv, &stack);
 	if (stack.split_flag == 1)
 		ft_free_array(argv);
 }

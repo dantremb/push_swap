@@ -70,6 +70,23 @@ void	ft_execute_command(t_stack *stack)
 		printf("OK\n");
 }
 
+void	ft_checker(int argc, char **argv, t_stack *stack)
+{
+	if (ft_digit(argv) || ft_doubles(argv) || ft_doubles(argv))
+	{
+		if (stack->split_flag == 1)
+			ft_free_array(argv);
+		ft_send_error();
+	}
+	else
+	{
+		ft_init_all_stack(stack, argv + 1, argc);
+		ft_execute_command(stack);
+		free (stack->a);
+		free (stack->b);
+	}
+}
+
 int	main(int argc, char **argv)
 {
 	t_stack	stack;
@@ -84,19 +101,7 @@ int	main(int argc, char **argv)
 		free (split);
 		stack.split_flag = 1;
 	}
-	if (ft_digit(argv) || ft_doubles(argv) || ft_doubles(argv))
-	{
-		if (stack.split_flag == 1)
-			ft_free_array(argv);
-		ft_send_error();
-	}
-	else
-	{
-		ft_init_all_stack(&stack, argv + 1, argc);
-		ft_execute_command(&stack);
-		free (stack.a);
-		free (stack.b);
-	}
+	ft_checker(argc, argv, &stack);
 	if (stack.split_flag == 1)
 		ft_free_array(argv);
 	return (0);
