@@ -74,19 +74,22 @@ int	main(int argc, char **argv)
 {
 	t_stack	stack;
 	char	*split;
-	int		split_flag;
 
-	split_flag = 0;
+	stack.split_flag = 0;
 	if (ft_strchr(argv[1], 32) != NULL && argc == 2)
 	{
 		split = ft_strjoin("push_swap ", argv[1]);
 		argc = ft_split_size(split, 32);
 		argv = ft_split(split, 32);
 		free (split);
-		split_flag = 1;
+		stack.split_flag = 1;
 	}
 	if (ft_digit(argv) || ft_doubles(argv) || ft_doubles(argv))
+	{
+		if (stack.split_flag == 1)
+			ft_free_array(argv);
 		ft_send_error();
+	}
 	else
 	{
 		ft_init_all_stack(&stack, argv + 1, argc);
@@ -94,7 +97,7 @@ int	main(int argc, char **argv)
 		free (stack.a);
 		free (stack.b);
 	}
-	if (split_flag == 1)
+	if (stack.split_flag == 1)
 		ft_free_array(argv);
 	return (0);
 }

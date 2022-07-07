@@ -36,16 +36,15 @@ static int	ft_count_word(char const *src, char sep)
 {
 	int		words;
 	int		i;
-
-	i = -1;
+	i = 0;
 	words = 0;
-	while (src[++i])
+	while (src[i])
 	{
 		while (src[i] == sep)
 			i++;
-		if (src[i] != sep && src[i])
+		if (src[i] && src[i] != sep)
 			words++;
-		while (src[i] != sep && src[i])
+		while (src[i] && src[i] != sep)
 			i++;
 	}
 	return (words);

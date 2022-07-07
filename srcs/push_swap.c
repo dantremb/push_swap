@@ -27,9 +27,17 @@ int	main(int argc, char **argv)
 		stack.split_flag = 1;
 	}
 	if (ft_max(argv) || ft_digit(argv) || ft_doubles(argv))
+	{
+		if (stack.split_flag == 1)
+			ft_free_array(argv);
 		ft_send_error();
+	}
 	else if (ft_check_sorted(argv) == 0 || argc <= 2)
+	{
+		if (stack.split_flag == 1)
+			ft_free_array(argv);
 		return (1);
+	}
 	else
 	{
 		ft_init_all_stack(&stack, argv + 1, argc);
