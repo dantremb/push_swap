@@ -6,23 +6,12 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:38:59 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/07 13:01:07 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/11 14:59:08 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../includes/checker.h"
-
-int	ft_sorted(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (stack->a[++i])
-		if (stack->a[i] < stack->a[i - 1])
-			return (1);
-	return (0);
-}
 
 int	ft_do_move(char *test, t_stack *stack)
 {
@@ -69,7 +58,7 @@ void	ft_execute_command(t_stack *stack, char **argv)
 		{
 			if (stack->split_flag == 1)
 				ft_free_array(argv);
-			exit(1);
+			ft_send_error();
 		}
 		free (test);
 	}
@@ -81,7 +70,7 @@ void	ft_execute_command(t_stack *stack, char **argv)
 
 void	ft_checker(int argc, char **argv, t_stack *stack)
 {
-	if (ft_digit(argv) || ft_doubles(argv) || ft_doubles(argv))
+	if (ft_digit(argv) || ft_doubles(argv) || ft_max(argv))
 	{
 		if (stack->split_flag == 1)
 			ft_free_array(argv);

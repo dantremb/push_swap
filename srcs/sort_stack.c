@@ -6,11 +6,12 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 15:08:04 by dantremb          #+#    #+#             */
-/*   Updated: 2022/06/30 14:37:01 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/11 15:01:11 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
 
 void	ft_sort(t_stack *stack, int total_number)
 {
@@ -19,7 +20,7 @@ void	ft_sort(t_stack *stack, int total_number)
 	else if (total_number < 5)
 		ft_sort_three(stack);
 	else if (total_number < 7)
-		ft_sort_five(stack);
+		ft_sort_five(stack, total_number);
 	else
 	{
 		ft_sort_big_a_to_b(stack, total_number);
@@ -42,25 +43,32 @@ void	ft_sort_three(t_stack *stack)
 		ft_rotate(stack, STACKA);
 }
 
-void	ft_sort_five(t_stack *stack)
+void	ft_sort_five(t_stack *stack, int total_number)
 {
+	int size;
+
+	size = total_number - 3;
+	printf("nbs = %d\n", size);
+	ft_print_stack(stack);
 	while (stack->a[3] != 0)
 	{
-		if (stack->a[0] < 3)
+		if (stack->a[0] < size)
 			ft_push(stack, STACKB);
 		else
 		{
-			if (stack->a[ft_stack_size(stack->a) - 1] < 3)
+			if (stack->a[ft_stack_size(stack->a) - 1] < size)
 				ft_reverse_rotate(stack, STACKA);
 			else
 				ft_rotate(stack, STACKA);
 		}
 	}
-	ft_sort_three(stack);
+	if (ft_sorted(stack) != 0)
+		ft_sort_three(stack);
 	if (stack->b[0] < stack->b[1])
 		ft_swap(stack, STACKB);
 	ft_push(stack, STACKA);
-	ft_push(stack, STACKA);
+	if (stack->b[0] != 0)
+		ft_push(stack, STACKA);
 }
 
 void	ft_sort_big_a_to_b(t_stack *stack, int total_number)

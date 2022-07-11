@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 10:46:42 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/06 12:39:01 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/11 14:59:43 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ft_reverse(int *stack);
 
 void	ft_sort(t_stack *stack, int total_number);
 void	ft_sort_three(t_stack *stack);
-void	ft_sort_five(t_stack *stack);
+void	ft_sort_five(t_stack *stack, int total_number);
 void	ft_sort_big_a_to_b(t_stack *stack, int total_number);
 void	ft_sort_big_b_to_a(t_stack *stack);
 
@@ -62,6 +62,7 @@ int		ft_stack_size(int *stack);
 int		ft_return_index(int *stack, int number);
 int		ft_number_remain(int *stack, int number, int side);
 int		ft_find_next_smaller(int *stack, int chunk, int total_number);
+int		ft_sorted(t_stack *stack);
 void	ft_print_stack(t_stack *stack);
 
 #endif
