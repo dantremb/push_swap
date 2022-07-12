@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/28 22:56:01 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/05 12:15:50 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/12 10:36:27 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@ void	ft_swap_bonus(t_stack *stack, int set)
 {
 	int	temp;
 
-	if (set == STACKA || set == BOTHSTACK)
+	if (stack->a[1] != 0 && (set == STACKA || set == BOTHSTACK))
 	{
 		temp = stack->a[0];
 		stack->a[0] = stack->a[1];
 		stack->a[1] = temp;
 	}
-	if (set == STACKB || set == BOTHSTACK)
+	if (stack->b[1] != 0 && (set == STACKB || set == BOTHSTACK))
 	{
 		temp = stack->b[0];
 		stack->b[0] = stack->b[1];

@@ -6,12 +6,26 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/30 11:38:59 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/11 14:59:08 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/12 10:22:02 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 #include "../includes/checker.h"
+#include <stdlib.h>
+
+int	ft_sorted(t_stack *stack)
+{
+	int	i;
+
+	i = 0;
+	if (stack->b[0] != 0)
+		return (1);
+	while (stack->a[++i])
+		if (stack->a[i] < stack->a[i - 1])
+			return (1);
+	return (0);
+}
 
 int	ft_do_move(char *test, t_stack *stack)
 {
@@ -75,6 +89,12 @@ void	ft_checker(int argc, char **argv, t_stack *stack)
 		if (stack->split_flag == 1)
 			ft_free_array(argv);
 		ft_send_error();
+	}
+	else if (argc == 1)
+	{
+		if (stack->split_flag == 1)
+			ft_free_array(argv);
+		exit(1);
 	}
 	else
 	{

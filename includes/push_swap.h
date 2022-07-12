@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/03 10:46:42 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/11 14:59:43 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/12 10:33:15 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,6 @@ int		ft_stack_size(int *stack);
 int		ft_return_index(int *stack, int number);
 int		ft_number_remain(int *stack, int number, int side);
 int		ft_find_next_smaller(int *stack, int chunk, int total_number);
-int		ft_sorted(t_stack *stack);
 void	ft_print_stack(t_stack *stack);
 
 #endif

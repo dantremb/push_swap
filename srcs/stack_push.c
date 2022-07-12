@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 10:41:47 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/11 14:55:01 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/12 10:33:27 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,4 @@ void	ft_push(t_stack *stack, int set)
 		ft_remove(stack->a);
 		ft_putstr("pb\n");
 	}
-	ft_print_stack(stack);
 }

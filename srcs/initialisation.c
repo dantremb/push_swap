@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/29 14:39:36 by dantremb          #+#    #+#             */
-/*   Updated: 2022/06/29 14:40:44 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/12 09:59:46 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_send_error(void)
 {
-	write(2, "error\n", 7);
+	write(2, "Error\n", 7);
 	exit(1);
 }
 

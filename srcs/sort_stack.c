@@ -6,7 +6,7 @@
 /*   By: dantremb <dantremb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 15:08:04 by dantremb          #+#    #+#             */
-/*   Updated: 2022/07/11 15:01:11 by dantremb         ###   ########.fr       */
+/*   Updated: 2022/07/12 10:34:25 by dantremb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,11 +45,9 @@ void	ft_sort_three(t_stack *stack)
 
 void	ft_sort_five(t_stack *stack, int total_number)
 {
-	int size;
+	int	size;
 
 	size = total_number - 3;
-	printf("nbs = %d\n", size);
-	ft_print_stack(stack);
 	while (stack->a[3] != 0)
 	{
 		if (stack->a[0] < size)
@@ -62,8 +60,7 @@ void	ft_sort_five(t_stack *stack, int total_number)
 				ft_rotate(stack, STACKA);
 		}
 	}
-	if (ft_sorted(stack) != 0)
-		ft_sort_three(stack);
+	ft_sort_three(stack);
 	if (stack->b[0] < stack->b[1])
 		ft_swap(stack, STACKB);
 	ft_push(stack, STACKA);
